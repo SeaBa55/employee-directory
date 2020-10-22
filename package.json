@@ -1,0 +1,19 @@
+{
+  "name": "employee-directory",
+  "version": "1.0.0",
+  "description": "Unit 19 React Homework: Employee Directory",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SeaBa55/employee-directory.git"
+  },
+  "author": "SARRAZOL",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SeaBa55/employee-directory/issues"
+  },
+  "homepage": "https://github.com/SeaBa55/employee-directory#readme"
+}
