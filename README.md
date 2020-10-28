@@ -53,3 +53,8 @@ You are required to submit the following:
 
 * the URL to the Github repository
 
+# Revisions
+
+employee-directory_v1.0 - Initial commit: Added basic README, react file structure, and .gitignore files.
+
+employee-directory_v1.1 - Random user API integrated and displaying profile image, first and last name for 20 random employees. 
