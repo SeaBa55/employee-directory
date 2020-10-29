@@ -16,9 +16,10 @@ function DataTable() {
 
     return( 
         <div className="DataTable">
-            {employees.map(data => {
+            {employees.map((data, index) => {
                 return(
                     <DataRow
+                        key={index}
                         image={data.picture.medium}
                         firstName={data.name.first}
                         lastName={data.name.last}
