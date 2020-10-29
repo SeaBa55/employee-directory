@@ -3,17 +3,11 @@ import "./style.css";
 
 function DataLabels() {
     return( 
-        <div className="row justify-content-center">
-            <div className="card col-1">
-                Image
-            </div>
-            <div className="card col-2">
-                First
-            </div>
-            <div className="card col-2">
-                Last
-            </div>
-        </div>
+        <tr>
+            <th scope="col">Image</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+        </tr>
     );
 }
 

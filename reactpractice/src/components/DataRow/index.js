@@ -3,21 +3,19 @@ import React from "react";
 
 function DataRow(props) {
   return (
-    <div className="row justify-content-center">
+    <tr>
+        <td>
+            <img src={props.image} className="img-fluid img-thumbnail" alt="profile"/>
+        </td>
+        
+        <td>
+            {props.firstName}
+        </td>
 
-      <div className="card col-1">
-        <img src={props.image} className="img-fluid img-thumbnail" alt="profile"/>
-      </div>
-      
-      <div className="card col-2">
-        First Name: {props.firstName}
-      </div>
-
-      <div className="card col-2">
-        Last Name: {props.lastName}
-      </div>
-
-    </div>
+        <td>
+            {props.lastName}
+        </td>
+    </tr>
   );
 }
 

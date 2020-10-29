@@ -61,4 +61,7 @@ employee-directory_v1.1 - Random user API integrated and displaying profile imag
 
 employee-directory_v1.2 - Added unique key prop to my DataRow divs using the index value used in the map method.
 
-employee-directory_v1.4 - Added a lable row above the current table structure.
+employee-directory_v1.3 - Added a lable row above the current table structure.
+
+employee-directory_v1.4 - Added a search bar component above the table area. Restructured table divs using bootstrap styling.
+
