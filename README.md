@@ -66,6 +66,7 @@ employee-directory_v1.4 - Added a search bar component above the table area. Res
 
 employee-directory_v1.5 - Changed directory configuration.
 
+employee-directory_v1.6 - Added toggle buttons to the table col lables.
 
 - - -
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
