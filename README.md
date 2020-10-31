@@ -68,6 +68,8 @@ employee-directory_v1.5 - Changed directory configuration.
 
 employee-directory_v1.6 - Added toggle buttons to the table col lables.
 
+employee-directory_v1.7 - Added sort functionality to data lable toggle buttons.
+
 - - -
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
