@@ -70,6 +70,8 @@ employee-directory_v1.6 - Added toggle buttons to the table col lables.
 
 employee-directory_v1.7 - Added sort functionality to data lable toggle buttons.
 
+employee-directory_v1.8 - Added crude search feature, which is currently only capable of searching by first name (wildcard).
+
 - - -
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

@@ -4,18 +4,28 @@ import DataRow from "../DataRow/index";
 import DataLabels from "../DataLabels";
 import API from "../../utils/API";
 
-function DataTable() {
-    // const columns = [
-    //     "image",
-    //     "firstName",
-    //     "lastName"
-    // ];
-
+function DataTable(props) {
+    // const [initEmployees, setInitEmployees] = useState([]);
     const [employees, setEmployeesState] = useState([]);
     const [toggleState, setToggleState] = useState({  
         toggle: null,
         toggleBtn: null 
     });
+
+    const checkSearch = searchVal => {
+        let  results = [];
+
+        // if(searchVal===""){
+        //     results = employees;
+        // }else{
+            results = employees.filter(person =>
+                person.firstName.toLowerCase().includes(searchVal)
+            );
+        // };
+        
+        return results;
+
+    };
 
     useEffect(() => {
         API.getUsers().then(data =>  {
@@ -27,55 +37,42 @@ function DataTable() {
                     lastName: temp.name.last
                 }
             });
+            // setInitEmployees(tmp);
             setEmployeesState(tmp);
         });
     }, []);
 
-    // const toggler = (e) => {
-    //     togglers(e)
-    //     .then(() => {
-    //         toggleSort(e);
-    //     })
-    // };
-
     const toggler = (e) => {
         const btn = e.currentTarget.id;
+        const colChange = (btn===toggleState.toggleBtn) ? false : true;
+        const newToggleState = colChange ? true : !toggleState.toggle;
 
         setToggleState((prevState)=> {  
-            const colChange = (btn===prevState.toggleBtn) ? false : true;
             return { ...prevState, 
-                toggle: setToggle(prevState,colChange),
+                toggle: newToggleState,
                 toggleBtn: btn
             }
         })
 
-        const setToggle = (data,reset) => {
-            // init toggle state handling
-            if(data.toggle===null || reset) {
-                return true;
-            }else{
-                // toggle the toggle state (results in up or down arrow rendering and sort method change)
-                return !data.toggle
-            };
-        };
-        toggleSort(btn)
-    };
+        // setToggleState((prevState)=> {  
+        //     return { ...prevState, 
+        //         toggle: setToggle(prevState,colChange),
+        //         toggleBtn: btn
+        //     }
+        // })
 
-    const toggleSort = (btn) => {
-        // const btn = e.currentTarget.id;
-        const arr = employees;
+        // const setToggle = (data,reset) => {
+        //     // init toggle state handling
+        //     if(data.toggle===null || reset) {
+        //         return true;
+        //     }else{
+        //         // toggle the toggle state (results in up or down arrow rendering and sort method change)
+        //         return !data.toggle
+        //     };
+        // };
 
-        let s = 1;
-        if(!toggleState.toggle) { 
-            s = -1; 
-        };
-
-        // const col = columns.find((feild, index) => {
-        //     return index===toggleState.toggleBtn; 
-             
-        // });
-
-        arr.sort((a, b) => {
+        const s = newToggleState ? 1 : -1;
+        const arr = employees.sort((a, b) => {
             if(a[btn].toLowerCase() < b[btn].toLowerCase()) {
                 return -1*s;
             }else if(a[btn].toLowerCase() > b[btn].toLowerCase()){
@@ -84,7 +81,6 @@ function DataTable() {
                 return 0
             }
         });
-
         setEmployeesState(arr);
     };
 
@@ -98,7 +94,7 @@ function DataTable() {
                 />
             </thead>
             <tbody>
-                {employees.map((data, index) => {
+                {checkSearch(props.searchVal).map((data, index) => {
                     return(
                         <DataRow
                             key= {index}
