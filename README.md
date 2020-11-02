@@ -74,6 +74,8 @@ employee-directory_v1.8 - Added crude search feature, which is currently only ca
 
 employee-directory_v1.9 - Changed the search button to a dropdown, which enables the user to select the column for which the search will be applied to.
 
+employee-directory_v2.0 - Refactored DataLabeles.js. Converted hard coded elements to programtic elements based on the number of columns.  
+
 - - -
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

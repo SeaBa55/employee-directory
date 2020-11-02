@@ -2,39 +2,22 @@ import React, {useState, useEffect} from "react";
 import "./style.css";
 import DataRow from "../DataRow/index";
 import DataLabels from "../DataLabels";
-// import API from "../../utils/API";
 
 function DataTable(props) {
-    // const [initEmployees, setInitEmployees] = useState([]);
     const [employees, setEmployeesState] = useState([]);
     const [toggleState, setToggleState] = useState({  
         toggle: null,
         toggleBtn: null 
     });
 
+    useEffect(() => {
+        setEmployeesState(props.apiData);
+    }, [props.apiData]);
+
     const checkSearch = (searchState) => {
-        // const lableArray = ["key","image","firstName","lastName"];
         const searchVal = searchState.searchTerm;
         const lableVal =  searchState.filter;
         let results;
-        
-        // if(searchVal.length > 0) {
-        //     results = lableArray.filter((lable,index) => {
-        //         let res;
-    
-        //         if(index>1) {
-        //             res = employees.filter(person => {
-        //                 let a = person[Object.keys(person).filter(key => key===lable)].toLowerCase().includes(searchVal.toLowerCase())
-        //                 // console.log(a);
-        //                 return a
-        //             });
-        //         }
-        //         console.log(res);
-        //         return res 
-        //     });
-        // }else{
-        //     results = employees
-        // }; 
       
         results = employees.filter(person =>
             person[Object.keys(person).filter(key => key===lableVal)].toLowerCase().includes(searchVal.toLowerCase())
@@ -42,27 +25,6 @@ function DataTable(props) {
 
         return results;
     };
-
-    // useEffect(() => {
-    //     API.getUsers().then(data =>  {
-    //         const tmp = data.data.results.map((temp, index) => {
-    //             return {
-    //                 key: index,
-    //                 image: temp.picture.medium,
-    //                 firstName: temp.name.first,
-    //                 lastName: temp.name.last
-    //             }
-    //         });
-    //         // setInitEmployees(tmp);
-    //         setEmployeesState(tmp);
-    //     });
-    // }, []);
-
-    useEffect(() => {
-    
-        setEmployeesState(props.apiData);
-    
-    }, [props.apiData]);
 
     const toggler = (event) => {
         const btn = event.currentTarget.id; // current lable button id.
@@ -97,7 +59,7 @@ function DataTable(props) {
         <table className="table table-striped table-dark">
             <thead>
                 <DataLabels
-                    data={employees}
+                    labels={props.colLabels}
                     dataToggle={toggler}
                     toggleState={toggleState}
                 />
@@ -106,7 +68,7 @@ function DataTable(props) {
                 {checkSearch(props.searchState).map((data, index) => {
                     return(
                         <DataRow
-                            key= {index}
+                            key={index}
                             image={data.image}
                             firstName={data.firstName}
                             lastName={data.lastName}

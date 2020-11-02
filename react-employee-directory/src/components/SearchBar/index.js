@@ -5,28 +5,29 @@ import "./style.css";
 function SearchBar(props) {
     return( 
         <div className="input-group mb-3 mt-3">
-            {/* <div className="input-group-prepend">
-                <button className="btn btn-outline-secondary" type="button" id="button-addon1">Search</button>
-            </div> */}
-            {/* <div className="dropdown show">
-                <a className="btn btn-secondary dropdown-toggle" role="button" id="button-addon1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Search
-                </a>
-                <div className="dropdown-menu" aria-labelledby="button-addon1">
-                    {options.map((option) => {
-                        <div className='option'>{option.name}</div>
-                    })}
-                </div>
-            </div> */}
-
             <Dropdown>
                 <Dropdown.Toggle variant="success" id="dropdown-basic">
                     {props.searchVal.filter}
                 </Dropdown.Toggle>
 
-                <Dropdown.Menu>
+                {/* <Dropdown.Menu>
                     <Dropdown.Item onClick={props.setSearch} id={"firstName"}>First Name</Dropdown.Item>
                     <Dropdown.Item onClick={props.setSearch} id={"lastName"}>Last Name</Dropdown.Item>
+                </Dropdown.Menu> */}
+
+                <Dropdown.Menu>
+                    {props.colLabels.map((labelName, index) => {
+                        return(
+                            <Dropdown.Item 
+                                key={index} 
+                                onClick={props.setSearch} 
+                                id={labelName}
+                            >
+                                {labelName}
+                                {/* labelName.split("N"); */}
+                            </Dropdown.Item>
+                        )
+                    })}
                 </Dropdown.Menu>
             </Dropdown>
 
