@@ -28,7 +28,7 @@ function SearchBar(props) {
             <input 
                 type="text" 
                 className="form-control" 
-                placeholder="search name"
+                placeholder={"search " + props.searchVal.filter}
                 value={props.searchVal.searchTerm}
                 onChange={props.setSearch} 
                 aria-label="Example text with button addon" 

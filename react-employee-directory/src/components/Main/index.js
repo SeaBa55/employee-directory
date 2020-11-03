@@ -3,7 +3,7 @@ import "./style.css";
 import DataTable from "../DataTable";
 import SearchBar from "../SearchBar";
 import API from "../../utils/API";
-// use state in main for search feild
+
 function Main () {
   const [initEmployees, setInitEmployees] = useState([]);
   const [columnLabels, setColumnLables] = useState([]);
@@ -25,8 +25,7 @@ function Main () {
         }
       });
       setInitEmployees(tmp);
-      let a = Object.keys(tmp[0]);
-      setColumnLables(a.splice(2,a.length));
+      setColumnLables(Object.keys(tmp[0]).splice(2,Object.keys(tmp[0]).length));
     });
   },[]);
 
@@ -43,7 +42,7 @@ function Main () {
 
   return (
     <div className="container col-12">
-      <SearchBar setSearch={handleChange} searchVal={searchState} colLabels={columnLabels} />
+      <SearchBar setSearch={handleChange} searchVal={searchState} colLabels={columnLabels}/>
       <DataTable searchState={searchState} apiData={initEmployees} colLabels={columnLabels}/>
     </div>
   )

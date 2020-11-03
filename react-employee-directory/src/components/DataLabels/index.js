@@ -2,13 +2,6 @@ import React from "react";
 import "./style.css";
 
 function DataLabels(props) {
-
-    // let labels = [];
-
-    // if(props.data[0] !== undefined) {
-    //     labels = Object.keys(props.data[0]);
-    // }
-
     let arrow = "";
     if(props.toggleState.toggle===null){    // when toggle is null arrow indicates empty1
         arrow = "";

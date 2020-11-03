@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import "./style.css";
 import DataRow from "../DataRow/index";
 import DataLabels from "../DataLabels";
@@ -16,7 +16,7 @@ function DataTable(props) {
 
     const checkSearch = (searchState) => {
         const searchVal = searchState.searchTerm;
-        const lableVal =  searchState.filter;
+        const lableVal = searchState.filter;
         let results;
       
         results = employees.filter(person =>
@@ -41,7 +41,7 @@ function DataTable(props) {
             }
         })
 
-        // sort employees array aphabetically in assending and decending order depending on the value of the toggle direction logical switch "s".
+        // sort employees array aphabetically in assending and decending order depending on the value of the toggle direction logical switch "sw".
         const arr = employees.sort((a, b) => {
             if(a[btn].toLowerCase() < b[btn].toLowerCase()) {
                 return -1*sw;
