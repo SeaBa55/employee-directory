@@ -76,6 +76,8 @@ employee-directory_v1.9 - Changed the search button to a dropdown, which enables
 
 employee-directory_v2.0 - Refactored DataLabeles.js. Converted hard coded elements to programtic elements based on the number of columns.  
 
+employee-directory_v2.1 - Consolidated first and last names into a single row, and added additional employee information columns. Refactored the code for modularity, where now the rendered data is controlled at a single point in the useEffect hook return object in component Main. 
+
 - - -
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

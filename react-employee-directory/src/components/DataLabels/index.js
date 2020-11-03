@@ -21,61 +21,22 @@ function DataLabels(props) {
     return( 
         <tr>
             <th scope="col" id={"employee-image"}>
-                Image
+                <div className="btn btn-dark disabled"><span className="row"><div>Image</div></span></div>
             </th>
-            {/* <th scope="col">
-                <button onClick={props.dataToggle} id={labels[2]!==undefined ? labels[2] : ""} className="btn btn-dark">
-                    <span className="row">
-                        <div>First Name</div>
-                        <div className={props.toggleState.toggleBtn===labels[2] ? "active" : "hide"}>
-                            {arrow}
-                        </div>
-                    </span>
-                </button>
-            </th>
-            <th scope="col">
-                <button onClick={props.dataToggle} id={labels[3]!==undefined ? labels[3] : ""} className="btn btn-dark">
-                    <span className="row">
-                        <div>Last Name</div>
-                        <div className={props.toggleState.toggleBtn===labels[3] ? "active" : "hide"}>
-                            {arrow}
-                        </div>
-                    </span>
-                </button>
-            </th> */}
-
-            {/* <th scope="col">
-                <button onClick={props.dataToggle} id={labels[3]!==undefined ? labels[3] : ""} className="btn btn-dark">
-                    <span className="row">
-                        <div>Last Name</div>
-                        <div className={props.toggleState.toggleBtn===labels[3] ? "active" : "hide"}>
-                            {arrow}
-                        </div>
-                    </span>
-                </button>
-            </th> */}
             {props.labels.map((labelName, index) => {
-                        return(
-                            <th scope="col">
-                                <button onClick={props.dataToggle} id={labelName} className="btn btn-dark">
-                                    <span className="row">
-                                        <div>{labelName}</div>
-                                        <div className={props.toggleState.toggleBtn===labelName ? "active" : "hide"}>
-                                            {arrow}
-                                        </div>
-                                    </span>
-                                </button>
-                            </th>
-                            // <Dropdown.Item 
-                            //     key={index} 
-                            //     onClick={props.setSearch} 
-                            //     id={labelName}
-                            // >
-                            //     {labelName}
-                            //     {/* labelName.split("N"); */}
-                            // </Dropdown.Item>
-                        )
-                    })}
+                return(
+                    <th scope="col" key={index}>
+                        <button onClick={props.dataToggle} id={labelName} className="btn btn-dark">
+                            <span className="row">
+                                <div>{labelName}</div>
+                                <div className={props.toggleState.toggleBtn===labelName ? "active" : "hide"}>
+                                    {arrow}
+                                </div>
+                            </span>
+                        </button>
+                    </th>
+                )
+            })}
         </tr>
     );
 }

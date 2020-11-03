@@ -10,11 +10,6 @@ function SearchBar(props) {
                     {props.searchVal.filter}
                 </Dropdown.Toggle>
 
-                {/* <Dropdown.Menu>
-                    <Dropdown.Item onClick={props.setSearch} id={"firstName"}>First Name</Dropdown.Item>
-                    <Dropdown.Item onClick={props.setSearch} id={"lastName"}>Last Name</Dropdown.Item>
-                </Dropdown.Menu> */}
-
                 <Dropdown.Menu>
                     {props.colLabels.map((labelName, index) => {
                         return(
@@ -24,7 +19,6 @@ function SearchBar(props) {
                                 id={labelName}
                             >
                                 {labelName}
-                                {/* labelName.split("N"); */}
                             </Dropdown.Item>
                         )
                     })}

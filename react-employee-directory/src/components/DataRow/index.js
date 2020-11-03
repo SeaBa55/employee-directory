@@ -4,16 +4,15 @@ function DataRow(props) {
   return (
     <tr>
         <td>
-            <img src={props.image} className="img-fluid img-thumbnail" alt="profile"/>
+            <img src={props.data.image} className="img-fluid img-thumbnail" alt="profile"/>
         </td>
-        
-        <td>
-            {props.firstName}
-        </td>
-
-        <td>
-            {props.lastName}
-        </td>
+        {props.labels.map((data, index) => {
+          return(
+            <td key={index}>
+                {props.data[Object.keys(props.data).filter(key => key===data)]}
+            </td>
+          )
+        })}
     </tr>
   );
 }
